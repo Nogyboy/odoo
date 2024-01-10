@@ -7,4 +7,7 @@
     Módulo de inmobiliaria
     """,
     'application': True,
+    'data': [
+        'security/ir.model.access.csv'
+    ],
 }
