@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="estate_type_view_tree" model="ir.ui.view">
+    <field name="name">estate.tree</field>
+    <field name="model">estate_property_type</field>
+    <field name="arch" type="xml">
+      <tree string="Propiedades">
+        <field name="name" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="estate__type_view_form" model="ir.ui.view">
+    <field name="name">estate.form</field>
+    <field name="model">estate_property_type</field>
+    <field name="arch" type="xml">
+      <form string="Propiedad">
+        <sheet>
+          <group>
+            <field name="name" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="estate_type_model_action" model="ir.actions.act_window">
+    <field name="name">Tipo de Propiedad</field>
+    <field name="res_model">estate_property_type</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea un nuevo tipo de propiedad.
+      </p>
+      <p>
+        Click en Crear para añadir una nuevo tipo de propiedad.
+      </p>
+      <p>
+        Puedes crear una propiedad desde el menú de Configuración.
+      </p>
+    </field>
+  </record>
+
+  <record id="estate_type_search" model="ir.ui.view">
+    <field name="name">estate.search</field>
+    <field name="model">estate_property_type</field>
+    <field name="arch" type="xml">
+      <search string="Propiedades">
+        <field name="name" string="Nombre" />
+      </search>
+    </field>
+  </record>
+</odoo>
