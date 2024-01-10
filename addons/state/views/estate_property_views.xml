@@ -44,6 +44,7 @@
                 <field name="garden" />
                 <field name="garden_area" />
                 <field name="garden_orientation" />
+                <field name="state" />
               </group>
             </page>
           </notebook>
@@ -66,6 +67,27 @@
       <p>
         Puedes crear una propiedad desde el menú Propiedades.
       </p>
+    </field>
+  </record>
+
+  <record id="estate_search" model="ir.ui.view">
+    <field name="name">estate.search</field>
+    <field name="model">estate_property</field>
+    <field name="arch" type="xml">
+      <search string="Propiedades">
+        <field name="name" string="Nombre" />
+        <field name="postcode" string="Código Postal" />
+        <field name="expected_price" string="Precio Esperado" />
+        <field name="bedrooms" string="Habitaciones" />
+        <field name="living_area" string="Superficie" />
+        <field name="facades" string="Fachadas" />
+        <separator />
+        <filter string="Archivados" name="inactive" domain="[('active', '=', False)]" />
+        <filter string="Propiedades Disponibles" name="available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]" />
+        <group expand="1" string="Group By">
+          <filter string="Código Postal" name="group_by_postcode" context="{'group_by':'postcode'}" />
+        </group>
+      </search>
     </field>
   </record>
 </odoo>
