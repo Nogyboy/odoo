@@ -47,6 +47,11 @@
                 <field name="state" />
               </group>
             </page>
+            <page string="Otros">
+              <group>
+                <field name="property_type_id" />
+              </group>
+            </page>
           </notebook>
         </sheet>
       </form>
