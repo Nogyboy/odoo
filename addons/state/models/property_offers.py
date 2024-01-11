@@ -21,6 +21,8 @@ class PropertyOffer(models.Model):
     _sql_constraints = [
         ('check_price', 'CHECK(price > 0)', 'El precio debe ser mayor que 0.'),
     ]
+
+    _order = 'price desc'
     
     @api.depends('validity')
     def _compute_date_deadline(self):

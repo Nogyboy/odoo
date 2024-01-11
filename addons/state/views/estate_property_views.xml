@@ -24,13 +24,13 @@
         <header>
           <button name="action_sell_property" type="object" string="Vendido" class="oe_highlight"/>
           <button name="action_cancel_property" type="object" string="Cancelar" class="oe_highlight"/>
+          <field name="state" widget="statusbar" clickable="True"  />
         </header>
         <sheet>
           <group>
             <field name="name" />
             <field name="property_tag_ids" widget="many2many_tags" />
             <group>
-              <field name="state" />
               <field name="postcode" />
               <field name="date_availability" />
             </group>
@@ -56,7 +56,7 @@
             </page>
             <page string="Ofertas">
               <field name="offer_ids" mode="tree">
-                <tree string="Ofertas">
+                <tree string="Ofertas" default_order="price desc">
                   <field name="price" />
                   <field name="status" />
                   <field name="partner_id" />

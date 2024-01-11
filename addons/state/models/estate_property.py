@@ -47,6 +47,8 @@ class EstateProperty(models.Model):
         ('check_selling_price', 'CHECK(selling_price > 0)', 'El precio de venta debe ser mayor que 0.'),
     ]
 
+    _order = 'id desc'
+
     @api.depends('living_area', 'garden_area')
     def _compute_total_area(self):
         for record in self:

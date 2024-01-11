@@ -5,3 +5,5 @@ class PropertyTag(models.Model):
     _description = "Real Estate Property Tag Model"
 
     name = fields.Char(required=True, string="Tag de propiedad")
+
+    _order = 'name asc'

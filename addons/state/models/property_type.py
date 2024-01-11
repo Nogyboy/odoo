@@ -10,3 +10,5 @@ class PropertyType(models.Model):
     _sql_constraints = [
         ('name', 'unique(name)', 'El tipo de propiedad ya existe.'),
     ]
+
+    _order = 'name asc'
