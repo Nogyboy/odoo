@@ -53,4 +53,4 @@ python_version = "3.10"
 
 [scripts]
 dev = "./odoo-bin --config .odoorc"
-migrate = "./odoo-bin --config .odoorc --dev xml -u"
+migrate = "./odoo-bin --config .odoorc --dev all -u"
