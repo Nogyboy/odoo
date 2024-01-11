@@ -1,7 +1,7 @@
 from odoo import api, models, fields
 from datetime import timedelta
 from odoo.exceptions import UserError
-
+from odoo.tools.float_utils import float_compare, float_is_zero
 class EstateProperty(models.Model):
     _name = "estate_property"
     _description = "Real Estate Property Model" 
@@ -83,3 +83,12 @@ class EstateProperty(models.Model):
         else:
             self.state = 'canceled'
         return True
+
+    @api.constrains('selling_price')
+    def _check_selling_price(self):
+        for record in self:
+            # Check if the selling price is less than 90% of the expected price
+            # Else set NULL to selling price
+            if record.selling_price and float_compare(record.selling_price, record.expected_price * 0.9, precision_digits=2) == -1:
+                record.selling_price = None
+                raise UserError("El precio de venta no puede ser menor al 90% del precio estimado.")
