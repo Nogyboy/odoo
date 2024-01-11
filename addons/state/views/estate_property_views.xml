@@ -51,6 +51,8 @@
             <page string="Otros">
               <group>
                 <field name="property_type_id" />
+                <field name="user_id" label="Vendedor" />
+                <field name="buyer_id" label="Comprador" />
               </group>
             </page>
           </notebook>
