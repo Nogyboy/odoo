@@ -22,8 +22,8 @@
     <field name="arch" type="xml">
       <form string="Propiedad">
         <header>
-          <button name="action_sell_property" type="object" string="Vendido" states="sold"/>
-          <button name="action_cancel_property" type="object" string="Cancelar" states="canceled" />
+          <button name="action_sell_property" type="object" string="Vendido" states="new, offer_received, offer_accepted" attrs="{'invisible': [('state', '!=', 'offer_accepted')]}"/>
+          <button name="action_cancel_property" type="object" string="Cancelar" states="new, offer_received, offer_accepted" attrs="{'invisible': [('state', '!=', 'offer_accepted')]}"/>
           <field name="state" widget="statusbar" clickable="True"  />
         </header>
         <sheet>
@@ -48,8 +48,8 @@
                 <field name="facades" />
                 <field name="garage" />
                 <field name="garden" />
-                <field name="garden_orientation" />
-                <field name="garden_area" />
+                <field name="garden_orientation" attrs="{'invisible': [('garden', '=', False)]}" />
+                <field name="garden_area" attrs="{'invisible': [('garden', '=', False)]}" />
                 <field name="living_area" />
                 <field name="total_area" />
               </group>

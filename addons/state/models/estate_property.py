@@ -28,11 +28,11 @@ class EstateProperty(models.Model):
     ], string="Orientación del jardín")
     active = fields.Boolean(default=True, string="Activo")
     state = fields.Selection([
-        ('new', 'New'),
-        ('offer_received', 'Offer Received'),
-        ('offer_accepted', 'Offer Accepted'),
-        ('sold', 'Sold'),
-        ('canceled', 'Canceled'),
+        ('new', 'Nuevo'),
+        ('offer_received', 'Oferta recibida'),
+        ('offer_accepted', 'Oferta aceptada'),
+        ('sold', 'Vendido'),
+        ('canceled', 'Cancelado'),
     ], default='new', required=True, string="Estado")
     property_type_id = fields.Many2one('estate_property_type', string="Tipo de propiedad")
     property_tag_ids = fields.Many2many('estate_property_tag', string="Etiquetas")
