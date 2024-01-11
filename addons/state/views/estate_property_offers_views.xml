@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="estate_offer_view_tree" model="ir.ui.view">
+    <field name="name">estate.tree</field>
+    <field name="model">estate_property_offer</field>
+    <field name="arch" type="xml">
+      <tree string="Propiedades">
+        <field name="price" />
+        <field name="status" />
+        <field name="partner_id" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="estate_offer_view_form" model="ir.ui.view">
+    <field name="name">estate.form</field>
+    <field name="model">estate_property_offer</field>
+    <field name="arch" type="xml">
+      <form string="Propiedad">
+        <sheet>
+          <group>
+            <group>
+              <field name="price" />
+              <field name="status" />
+            </group>
+            <group>
+              <field name="partner_id" />
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- <record id="estate_offer_model_action" model="ir.actions.act_window">
+    <field name="name">Propiedades</field>
+    <field name="res_model">estate_property_offer</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Crea una nueva propiedad
+      </p>
+      <p>
+        Click en Crear para añadir una nueva propiedad.
+      </p>
+      <p>
+        Puedes crear una propiedad desde el menú Propiedades.
+      </p>
+    </field>
+  </record> -->
+
+  <record id="estate_offer_search" model="ir.ui.view">
+    <field name="name">estate.search</field>
+    <field name="model">estate_property_offer</field>
+    <field name="arch" type="xml">
+      <search string="Propiedades">
+        <field name="status" />
+        <separator />
+        <filter string="Aceptado" name="status" domain="[('status', '=', 'accepted')]" />
+        <filter string="Rechazado" name="status" domain="[('status', '=', 'refused')]" />
+      </search>
+    </field>
+  </record>
+</odoo>

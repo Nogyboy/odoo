@@ -48,6 +48,15 @@
                 <field name="state" />
               </group>
             </page>
+            <page string="Ofertas">
+              <field name="offer_ids" mode="tree">
+                <tree string="Ofertas">
+                  <field name="price" />
+                  <field name="status" />
+                  <field name="partner_id" />
+                </tree>
+              </field>
+            </page>
             <page string="Otros">
               <group>
                 <field name="property_type_id" />
@@ -91,7 +100,8 @@
         <field name="facades" string="Fachadas" />
         <separator />
         <filter string="Archivados" name="inactive" domain="[('active', '=', False)]" />
-        <filter string="Propiedades Disponibles" name="available" domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]" />
+        <filter string="Propiedades Disponibles" name="available"
+          domain="['|', ('state', '=', 'new'), ('state', '=', 'offer_received')]" />
         <group expand="1" string="Group By">
           <filter string="Código Postal" name="group_by_postcode" context="{'group_by':'postcode'}" />
         </group>
