@@ -5,6 +5,7 @@
     <field name="model">estate_property_type</field>
     <field name="arch" type="xml">
       <tree string="Propiedades">
+        <field name="sequence" widget="handle" />
         <field name="name" />
       </tree>
     </field>
