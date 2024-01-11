@@ -36,23 +36,6 @@
     </field>
   </record>
 
-  <!-- <record id="estate_offer_model_action" model="ir.actions.act_window">
-    <field name="name">Propiedades</field>
-    <field name="res_model">estate_property_offer</field>
-    <field name="view_mode">tree,form</field>
-    <field name="help" type="html">
-      <p class="o_view_nocontent_smiling_face">
-        Crea una nueva propiedad
-      </p>
-      <p>
-        Click en Crear para añadir una nueva propiedad.
-      </p>
-      <p>
-        Puedes crear una propiedad desde el menú Propiedades.
-      </p>
-    </field>
-  </record> -->
-
   <record id="estate_offer_search" model="ir.ui.view">
     <field name="name">estate.search</field>
     <field name="model">estate_property_offer</field>

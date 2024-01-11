@@ -4,14 +4,18 @@
     <field name="name">estate.tree</field>
     <field name="model">estate_property</field>
     <field name="arch" type="xml">
-      <tree string="Propiedades">
+      <tree string="Propiedades" decoration-success="state == 'offer_received'"
+       decoration-bf="state == 'offer_accepted'"
+       decoration-muted="state == 'sold'"
+       >
         <field name="name" />
+        <field name="state" />
         <field name="postcode" />
         <field name="bedrooms" />
         <field name="living_area" />
         <field name="expected_price" />
         <field name="selling_price" />
-        <field name="date_availability" />
+        <field name="date_availability"  optional="True" />
       </tree>
     </field>
   </record>
@@ -29,7 +33,7 @@
         <sheet>
           <group>
             <field name="name" />
-            <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            <field name="property_tag_ids" editable="bottom" widget="many2many_tags" options="{'color_field': 'color'}"/>
             <group>
               <field name="postcode" />
               <field name="date_availability" />
@@ -55,8 +59,11 @@
               </group>
             </page>
             <page string="Ofertas">
-              <field name="offer_ids" mode="tree">
-                <tree string="Ofertas" default_order="price desc">
+              <field name="offer_ids" mode="tree" attrs="{'readonly': [('state', 'in', ['offer_accepted', 'sold', 'canceled'])]}">
+                <tree string="Ofertas" default_order="price desc" editable="bottom"
+                decoration-danger="status == 'refused'"
+                decoration-success="status == 'accepted'"
+                >
                   <field name="price" />
                   <field name="status" />
                   <field name="partner_id" />
@@ -84,6 +91,7 @@
     <field name="name">Propiedades</field>
     <field name="res_model">estate_property</field>
     <field name="view_mode">tree,form</field>
+    <field name="context">{'search_default_state': 'new'}</field>
     <field name="help" type="html">
       <p class="o_view_nocontent_smiling_face">
         Crea una nueva propiedad
@@ -108,6 +116,7 @@
         <field name="bedrooms" string="Habitaciones" />
         <field name="living_area" string="Superficie" />
         <field name="facades" string="Fachadas" />
+        <filter name="state" string="Disponible" domain="[('state', '=', 'new')]" />
         <separator />
         <filter string="Archivados" name="inactive" domain="[('active', '=', False)]" />
         <filter string="Propiedades Disponibles" name="available"
