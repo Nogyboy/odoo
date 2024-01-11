@@ -1,7 +1,8 @@
 from odoo import api, models, fields
 from datetime import timedelta
 from odoo.exceptions import UserError
-from odoo.tools.float_utils import float_compare, float_is_zero
+from odoo.tools.float_utils import float_compare
+
 class EstateProperty(models.Model):
     _name = "estate_property"
     _description = "Real Estate Property Model" 

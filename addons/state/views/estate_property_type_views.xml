@@ -19,6 +19,17 @@
           <group>
             <field name="name" />
           </group>
+          <notebook>
+            <page string="Propiedades">
+              <field name="property_ids" mode="tree">
+                <tree string="Propiedades">
+                  <field name="name" />
+                  <field name="expected_price" />
+                  <field name="state" />
+                </tree>
+              </field>
+            </page>
+          </notebook>
         </sheet>
       </form>
     </field>
