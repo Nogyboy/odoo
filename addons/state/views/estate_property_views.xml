@@ -22,14 +22,14 @@
     <field name="arch" type="xml">
       <form string="Propiedad">
         <header>
-          <button name="action_sell_property" type="object" string="Vendido" class="oe_highlight"/>
-          <button name="action_cancel_property" type="object" string="Cancelar" class="oe_highlight"/>
+          <button name="action_sell_property" type="object" string="Vendido" states="sold"/>
+          <button name="action_cancel_property" type="object" string="Cancelar" states="canceled" />
           <field name="state" widget="statusbar" clickable="True"  />
         </header>
         <sheet>
           <group>
             <field name="name" />
-            <field name="property_tag_ids" widget="many2many_tags" />
+            <field name="property_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
             <group>
               <field name="postcode" />
               <field name="date_availability" />
@@ -49,8 +49,8 @@
                 <field name="garage" />
                 <field name="garden" />
                 <field name="garden_orientation" />
-                <field name="living_area" />
                 <field name="garden_area" />
+                <field name="living_area" />
                 <field name="total_area" />
               </group>
             </page>
@@ -69,7 +69,7 @@
             </page>
             <page string="Otros">
               <group>
-                <field name="property_type_id" />
+                <field name="property_type_id" options="{'no_create': True, 'no_open': True}"/>
                 <field name="user_id" label="Vendedor" />
                 <field name="buyer_id" label="Comprador" />
               </group>
