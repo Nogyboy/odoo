@@ -21,11 +21,16 @@
     <field name="model">estate_property</field>
     <field name="arch" type="xml">
       <form string="Propiedad">
+        <header>
+          <button name="action_sell_property" type="object" string="Vendido" class="oe_highlight"/>
+          <button name="action_cancel_property" type="object" string="Cancelar" class="oe_highlight"/>
+        </header>
         <sheet>
           <group>
             <field name="name" />
             <field name="property_tag_ids" widget="many2many_tags" />
             <group>
+              <field name="state" />
               <field name="postcode" />
               <field name="date_availability" />
             </group>
@@ -44,7 +49,6 @@
                 <field name="garage" />
                 <field name="garden" />
                 <field name="garden_orientation" />
-                <field name="state" />
                 <field name="living_area" />
                 <field name="garden_area" />
                 <field name="total_area" />
